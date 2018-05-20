@@ -120,7 +120,7 @@
       }
     });
 
-    $('.toolbar-icon-admin-goto').click(function (event) {
+    $('#wp-admin-bar-admin_goto a').click(function (event) {
       event.preventDefault();
       AdminGoto.admin_goto_show();
     });

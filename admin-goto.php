@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Admin Goto
-description: The Admin Goto plugin helps you to navigate through the Wordpress admin faster, inspired by Mac apps Admin_Goto and Spotlight.
+description: The Admin Goto plugin helps you to navigate through the Wordpress admin faster, inspired by Mac apps Alfred and Spotlight.
 Version: 1.0.0
 Author: Fabrizio Meinero
 Author URI: https://imfaber.me
