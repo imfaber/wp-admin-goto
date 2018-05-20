@@ -6,5 +6,5 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 }
 
 foreach (get_users() as $user) {
-	delete_user_meta( $user->ID, ADMIN_GOTO_USER_META_ADMIN_PAGES );
+	delete_user_meta( $user->ID, '_admin_goto_pages' );
 }
