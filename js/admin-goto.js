@@ -149,7 +149,6 @@
      * Open the form and focus on the search field.
      */
     AdminGoto.admin_goto_show = function () {
-      console.log('here');
       AdminGoto.wrapper.removeClass('hide-form');
       AdminGoto.bg.show();
       AdminGoto.field.focus();
