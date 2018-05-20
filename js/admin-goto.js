@@ -166,7 +166,7 @@
     };
 
     /**
-     * Close the Coffee form and redirect.
+     * Close the AdminGoto form and redirect.
      *
      * @param {string} path
      *   URL to redirect to.

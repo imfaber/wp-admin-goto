@@ -1,6 +1,6 @@
 /**
  * @file
- * Stylesheet for the Coffee module.
+ * Stylesheet for the Admin Goto plugin.
  */
 [id^="admin-goto"] {
   -webkit-box-sizing: border-box;
@@ -166,18 +166,25 @@
   font-family: sans-serif;
 }
 
-.toolbar .toolbar-bar .toolbar-icon-admin-goto:before,
-.toolbar .toolbar-bar .toolbar-icon-admin-goto.active:before {
-  background-image: url("../images/icons/bebebe/admin-goto.svg");
-}
-
 #admin-goto-q {
-  background-image: url("../images/icons/bebebe/admin-goto.svg");
+  background-image: url("../images/icons/admin-goto.svg");
   background-position: right 10px center;
   background-repeat: no-repeat;
   background-size: 40px 40px;
 }
 
+#wpadminbar .admin-goto .ab-icon:before {
+  width: 20px;
+  height: 20px;
+  display: block;
+  font: normal 20px/1 dashicons !important;
+  content: "\f179";
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  top: 2px;
+}
 
 #admin-goto-form ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-size: 22px;
@@ -195,3 +202,4 @@
   font-size: 22px;
   color: #aeaeae;
 }
+

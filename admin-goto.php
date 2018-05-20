@@ -13,58 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-//add_action( 'admin_bar_menu', 'all_toolbar_nodes', 999 );
-//
-//function all_toolbar_nodes( $wp_admin_bar ) {
-//
-//
-//	$menu    = $GLOBALS['menu'];
-//	$submenu = $GLOBALS['submenu'];
-//
-//	foreach ( $menu as $item ) {
-//
-//	}
-//
-//	$a = 1;
-//
-//	//  $toolbar_nodes = $wp_admin_bar->get_nodes();
-//	//  if (!count($toolbar_nodes)) {
-//	//    return;
-//	//  }
-//	//
-//	//  $toolbar_nodes_js = [];
-//	//  foreach ($toolbar_nodes as $node) {
-//	//    if (strip_tags($node->title) && $node->title!=='#' && $node->href) {
-//	//      $toolbar_nodes_js[] = [
-//	//        'title' => strip_tags($node->title),
-//	//        'href' => $node->href,
-//	//      ];
-//	//    }
-//	//  }
-//	//
-//	//  $admin_goto = [
-//	//    'toolbar_nodes' => $toolbar_nodes_js
-//	//  ];
-//	//
-//	//  wp_enqueue_script( 'admin_goto_js', plugin_dir_url(__FILE__) . 'js/admin-goto.js', ['jquery-ui-autocomplete'] );
-//	//  wp_localize_script( 'admin_goto_js', 'Admin_Goto', $admin_goto );
-//	//  wp_enqueue_style( 'admin_goto_css', plugin_dir_url(__FILE__) . 'css/admin-goto.css',false,'1.0','all');
-//}
-//
-//add_action( 'admin_init', 'admin_goto_add_dependencies' );
-//
-//function admin_goto_add_dependencies() {
-//
-//	$menu    = $GLOBALS['menu'];
-//	$submenu = $GLOBALS['submenu'];
-//
-//	foreach ( $menu as $item ) {
-//
-//	}
-//
-//	$a = 1;
-//}
-
 /**
  * @class Admin_Goto
  */
@@ -91,6 +39,8 @@ class Admin_Goto {
 
 		add_action( 'admin_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ],
 			1000 );
+
+		add_action('admin_bar_menu', [ $this, 'add_toolbar_link' ], 1000);
 	}
 
 	/**
@@ -142,6 +92,27 @@ class Admin_Goto {
 			update_user_meta( $user_id, self::USER_META_ADMIN_PAGES,
 				$menu_items );
 		}
+
+	}
+
+	/**
+	 * Add toolbar link.
+	 *
+	 * @param WP_Admin_Bar $wp_admin_bar
+	 *
+	 * @return void
+	 */
+	public function add_toolbar_link($wp_admin_bar) {
+		$args = array(
+			'id' => 'admin_goto',
+			'title' => '<span class="ab-icon"></span><span class="ab-label">Go to...</span>',
+			'href' => '#',
+			'meta' => array(
+				'class' => 'admin-goto',
+				'title' => 'Search and go to admin pages'
+			)
+		);
+		$wp_admin_bar->add_node($args);
 
 	}
 
