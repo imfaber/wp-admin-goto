@@ -13,6 +13,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+if ( !defined('ADMIN_GOTO_USER_META_ADMIN_PAGES') ) {
+	define('ADMIN_GOTO_USER_META_ADMIN_PAGES', '_admin_goto_pages');
+}
+
 /**
  * @class Admin_Goto
  */
@@ -22,8 +26,6 @@ class Admin_Goto {
 	 * Static property to hold our singleton instance
 	 */
 	static $instance = FALSE;
-
-	const USER_META_ADMIN_PAGES = '_admin_goto_pages';
 
 
 	/**
@@ -63,7 +65,7 @@ class Admin_Goto {
 	public function wp_enqueue_scripts() {
 		$user_id = get_current_user_id();
 		if ( $user_id && $admin_goto_menu_items = get_user_meta( $user_id,
-				self::USER_META_ADMIN_PAGES, 1 )
+				ADMIN_GOTO_USER_META_ADMIN_PAGES, 1 )
 		) {
 			wp_enqueue_script( 'admin_goto_js',
 				plugin_dir_url( __FILE__ ) . 'js/admin-goto.js',
@@ -89,7 +91,7 @@ class Admin_Goto {
 		}
 
 		if ( $menu_items = $this->get_menu_items() ) {
-			update_user_meta( $user_id, self::USER_META_ADMIN_PAGES,
+			update_user_meta( $user_id, ADMIN_GOTO_USER_META_ADMIN_PAGES,
 				$menu_items );
 		}
 
