@@ -113,7 +113,7 @@
         if (!AdminGoto.isItemSelected) {
           var $firstItem = $(AdminGoto.results).find('li:first').data('item.autocomplete');
           if (typeof $firstItem === 'object') {
-            AdminGoto.redirect($firstItem.value, openInNewWindow);
+            AdminGoto.redirect($firstItem.href, openInNewWindow);
             event.preventDefault();
           }
         }
@@ -174,8 +174,9 @@
      *   Indicates if the URL should be open in a new window.
      */
     AdminGoto.redirect = function (path, openInNewWindow) {
-      AdminGoto.admin_goto_close();
 
+      AdminGoto.admin_goto_close();
+      
       if (openInNewWindow) {
         window.open(path);
       }
