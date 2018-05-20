@@ -88,6 +88,9 @@ class Admin_Goto {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ],
 			1000 );
+
+		add_action( 'admin_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ],
+			1000 );
 	}
 
 	/**
